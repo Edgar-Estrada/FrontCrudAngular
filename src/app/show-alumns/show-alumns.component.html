@@ -1,0 +1,39 @@
+<div class="container">
+    <div *ngIf="arrAlumns?.length == 0">
+        No hay alumnos registrados :c
+    </div>
+    <div *ngIf="arrAlumns?.length > 0">
+        <div class="card mb-5" *ngFor="let alumn of arrAlumns">
+            <div class="card-header">
+              Nombre: {{alumn.name}}
+            </div>
+            <div class="card-body">
+              <p class="card-text">Años: {{alumn.age}} </p>
+              <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="alumnSelected(alumn)">Ver más</a>
+            </div>
+          </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Nombre : {{alumn.name}}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                Edad: {{alumn.age}}
+            </div>
+            <div class="row">
+                Description: {{alumn.descripcion}}
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
